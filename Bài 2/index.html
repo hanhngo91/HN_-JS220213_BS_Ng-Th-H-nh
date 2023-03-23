@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+<body>
+    <!-- Viết 1 chương trình với đầu vào là 1 chuỗi ký tự và in ra chuỗi đó với các ký tự đầu 
+của chữ mỗi chữ được viết hoa. [20 điểm] 
+● Đầu vào: str
+● Đầu ra: In ra chuỗi với ký tự đầu được viết hoa.
+
+● Ví dụ
+○ Cho "this is A Test"; In ra "This Is A Test"
+○ Cho "hello rikkei academy"; In ra "Hello Rikkei Academy” -->
+
+
+<script>
+
+function toWord(str) {
+  let toArray = str.toLowerCase().split(' ');
+  let result = toArray.map(function(val) {
+    return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+  });
+  
+  return result.join(' ');
+}
+
+toWord("hello world baby");
+console.log(toWord("hello world baby"));    //Kết quả: Hello World Baby
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+<body>
+    <!-- Viết một chương trình xóa các phần tử trùng của một mảng và in ra kết quả.[20 điểm] 
+● Đầu vào: 1 mảng bất kỳ
+● Đầu ra: Mảng mới với các ký tự (hoặc số) không trùng nhau
+
+● Ví dụ:
+○ Cho Arr=[“one”,”two”,”three”,”one”,”one”,”four”,”five”,”four”,”five”five”]; 
+In ra Arr=[“one”,”two”,”three”,”four”,”five”]; 
+○ Cho Arr=[1,2,3,3,4,5,4,4,4,5,5]; In ra Arr=[1,2,3,4,5] -->
+
+<script>
+function array(arr){
+    let newArray = [];
+    newArray = arr.filter(function(itm){
+        return newArray.includes(itm)?"" : newArray.push(itm)
+    })
+    return newArray
+}
+
+let b = [1,2,3,3,4,5,4,4,4,5,5];
+console.log(array(b));    //Kết quả: b = [1, 2, 3, 4, 5]
+
+
+</script>
+</body>
+</html>

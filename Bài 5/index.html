@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+
+<style>
+body{
+    width: 100%;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+#table{
+    display: flex;
+    justify-content: left;
+}
+input {
+    height: 20px;
+}
+
+button{
+    margin: 0.5rem;
+}
+
+#delete{
+    background-color: rgb(237, 117, 117);
+}
+#add{
+    background-color: rgb(116, 116, 234);
+}
+h3{
+    display: flex;
+    justify-content: center;
+}
+
+</style>
+<body>
+    <!-- Tạo một mảng gồm 3 nhân viên Rikkei Academy (tên nhân viên). Xây dựng chương 
+trình quản lý nhân viên với các chức năng (Read, Create, Update, Delete). -->
+
+
+<div class="container">
+    <div class="main">
+        <h2>NHÂN VIÊN RIKKEI ACADEMY</h2>
+        <input type="text" id="input" placeholder="Enter staff name">
+        <button id="add" onclick="addStaff()">Add</button>
+        <h3>Dislay all the staffs</h3>
+        <table id="table">
+            <!-- <tr>
+                <td>Name</td>
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+            </tr> -->
+        </table>
+    </div>
+</div>
+
+
+<script>
+    let listStaffs = ['Staff1', 'Staff2', 'Staff3'];
+
+    function addStaff(){
+        let valueInput = document.getElementById("input").value;
+        listStaffs.push(valueInput);
+        rederListStaff();
+    }
+
+    function rederListStaff(){
+        let result = 
+        `
+        <tr>
+        <th>Staff Name</th>
+        </tr>
+        `;
+        for (let i=0; i<listStaffs.length; i++){
+            result += 
+            `
+            <tr>
+            <td>${listStaffs[i]}</td>
+            <td><button onclick="edit(${i})">Edit</button></td>
+            <td><button id="delete" onclick="deleteStaff(${i})">Delete</button></td>
+            </tr>
+            `
+        }
+        document.getElementById("table").innerHTML = result;
+    }
+    rederListStaff()
+    
+   function deleteStaff(id){
+    listStaffs.splice(id,1);
+    rederListStaff();
+   }
+
+   function edit(id){
+    document.getElementById("input").value=listStaffs[id];
+    let valueChangeInput=prompt("Enter new staff");
+    listStaffs.splice(id,1,valueChangeInput);
+    rederListStaff();
+    document.getElementById("input").value = "";
+   }
+
+</script>
+</body>
+</html>
